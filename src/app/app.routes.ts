@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './auth/login.component';
 import { PagenotfoundComponent } from './shared/components/pagenotfound/pagenotfound.component';
 
 export const routes: Routes = [

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MaterialModule } from '../../shared/material.module';
+import { MaterialModule } from '../shared/material.module';
 
 @Component({
   selector: 'app-login',
