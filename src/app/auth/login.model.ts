@@ -5,3 +5,8 @@ export interface RegisterForm {
   lastName: string
   birthday: string
 }
+
+export interface UserData {
+  email: string
+  password: string
+}
