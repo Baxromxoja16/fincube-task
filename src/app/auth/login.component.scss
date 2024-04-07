@@ -14,7 +14,7 @@ form {
 }
 .modal {
   padding: 32px 24px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, .8);
   border-radius: 8px;
   height: 70vh;
   width: 40%;
@@ -46,7 +46,7 @@ form {
       font-size: 16px;
       line-height: 16px;
       letter-spacing: 0.4px;
-      color: #000000;
+      color: rgba(0, 0, 0, 0.6);
     }
   }
 }
