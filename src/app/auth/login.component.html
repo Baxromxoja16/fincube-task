@@ -9,10 +9,13 @@
         </div>
         <form class="form-block" [formGroup]="logInForm">
           <mat-form-field appearance="outline">
-            <mat-label>Username</mat-label>
-            <input matInput type="text" formControlName="username" />
-            @if (logInForm.get('username')?.invalid) {
-              <mat-error>Enter your username please</mat-error>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" />
+            @if (logInForm.get('email')?.errors?.["required"] && logInForm.get('email')?.touched) {
+              <mat-error>Enter your email please</mat-error>
+            }
+            @else if (logInForm.get('email')?.errors?.["pattern"] && logInForm.get('email')?.touched) {
+              <mat-error>Wrong email</mat-error>
             }
           </mat-form-field>
 
