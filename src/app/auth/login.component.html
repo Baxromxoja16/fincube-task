@@ -33,6 +33,7 @@
               [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide"
             >
+            <mat-icon>remove_red_eye</mat-icon>
             </button>
             @if (logInForm.get('password')?.invalid) {
               <mat-error>Enter your passport please</mat-error>
