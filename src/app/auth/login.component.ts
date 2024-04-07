@@ -18,9 +18,7 @@ export class LoginComponent {
 
   logInForm:FormGroup;
 
-  registerForm!:FormGroup<any>;
-
-  documents:any[] = []
+  registerForm!:FormGroup;
 
   constructor() {
     this.logInForm = new FormGroup({
@@ -35,10 +33,7 @@ export class LoginComponent {
       firstName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       lastName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       birthday: new FormControl(null, [Validators.required]),
-      countryCode: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      phoneNumber: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      document: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    }) as any
+    })
 
   }
 
@@ -52,30 +47,6 @@ export class LoginComponent {
   }
 
   register(): void {
-    if(this.registerForm.valid) {
-      const {
-        email, password, firstName,
-        lastName, birthday,
-        countryCode, phoneNumber, document
-      } = this.registerForm.value;
-
-      const user:any = {
-        firstName, birthday, email,
-        lastName, password,
-        phoneNumber:document.code + phoneNumber,
-        citizenship: document.name,
-        login:email,
-        country: countryCode.name
-      }
-    }
+    if(this.registerForm.valid) {}
   }
-
-  loginWithGoogle() {
-
-  }
-
-  loginWithFacebook() {
-
-  }
-
 }
