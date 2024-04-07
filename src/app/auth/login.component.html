@@ -9,11 +9,11 @@
         </div>
         <form class="form-block" [formGroup]="logInForm">
           <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
+            <mat-label>Username</mat-label>
             <input matInput type="text" formControlName="username" />
-            <mat-error *ngIf="logInForm.get('email')?.invalid"
-              >Invalid character</mat-error
-            >
+            @if (logInForm.get('username')?.invalid) {
+              <mat-error>Enter your username please</mat-error>
+            }
           </mat-form-field>
 
           <mat-form-field appearance="outline">
@@ -31,9 +31,10 @@
               [attr.aria-pressed]="hide"
             >
             </button>
-            <mat-error *ngIf="logInForm.get('password')?.invalid"
-              >Invalid character</mat-error
-            >
+            @if (logInForm.get('password')?.invalid) {
+              <mat-error>Enter your passport please</mat-error>
+            }
+
           </mat-form-field>
           <div>
             <button mat-raised-button (click)="login()" class="submit">

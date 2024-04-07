@@ -42,11 +42,13 @@ export class LoginComponent {
   }
 
   login() {
+    console.log(this.logInForm);
     if(this.logInForm.valid) {
     }
   }
 
   register(): void {
+    console.log();
     if(this.registerForm.valid) {}
   }
 }
