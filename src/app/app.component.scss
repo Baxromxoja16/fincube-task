@@ -34,7 +34,9 @@ mat-sidenav {
     padding: 0.75rem;
   }
 }
-
+.active {
+  background: rgba(103, 2, 255, 0.2) !important;
+}
 // Move the content down so that it won't be hidden by the toolbar
 mat-sidenav-content {
   padding-top: 3.5rem;
