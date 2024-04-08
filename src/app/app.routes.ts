@@ -15,12 +15,17 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   { path: 'auth', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'people', component: PeopleComponent },
-  { path: 'films', component: FilmsComponent },
-  { path: 'planets', component: PlanetsComponent },
-  { path: 'ships', component: ShipsComponent },
-  { path: 'transport', component: TansportComponent },
-  { path: '**', pathMatch: 'full',
-  component: PagenotfoundComponent },
+  {
+    path: 'home', component: HomeComponent, children: [
+      { path: 'people', component: PeopleComponent },
+      { path: 'films', component: FilmsComponent },
+      { path: 'planets', component: PlanetsComponent },
+      { path: 'ships', component: ShipsComponent },
+      { path: 'transport', component: TansportComponent },
+    ]
+  },
+  {
+    path: '**', pathMatch: 'full',
+    component: PagenotfoundComponent
+  },
 ];
