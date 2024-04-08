@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './auth/login.component';
-import { FilmsComponent } from './films/films.component';
+import { FilmsComponent } from './home/pages/films/films.component';
 import { HomeComponent } from './home/home.component';
-import { PeopleComponent } from './people/people.component';
-import { PlanetsComponent } from './planets/planets.component';
+import { PeopleComponent } from './home/pages/people/people.component';
+import { PlanetsComponent } from './home/pages/planets/planets.component';
 import { PagenotfoundComponent } from './shared/components/pagenotfound/pagenotfound.component';
-import { ShipsComponent } from './ships/ships.component';
-import { TansportComponent } from './tansport/tansport.component';
+import { ShipsComponent } from './home/pages/ships/ships.component';
+import { TansportComponent } from './home/pages/tansport/tansport.component';
 
 export const routes: Routes = [
   {
