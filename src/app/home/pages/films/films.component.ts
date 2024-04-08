@@ -35,7 +35,7 @@ export class FilmsComponent implements OnInit, OnDestroy {
 
     this.subscription.add(getFilm);
 
-    if(this.filmsService.filmSig().episode_id) {
+    if(this.filmsService.filmSig().name) {
       this.router.navigate(['/home/films/detail']);
     }
   }
