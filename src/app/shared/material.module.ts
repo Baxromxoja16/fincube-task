@@ -9,6 +9,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -23,6 +26,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatTabsModule,
     MatIconModule,
     MatNativeDateModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   exports: [
     MatCardModule,
@@ -34,6 +40,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatTabsModule,
     MatIconModule,
     MatNativeDateModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [
     MatDatepickerModule

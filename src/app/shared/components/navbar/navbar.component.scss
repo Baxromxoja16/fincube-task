@@ -1,5 +1,5 @@
 $nav-padding-default: 16px 20px;
-$nav-padding-large: 16px 50px;
+$nav-padding-large: 16px 30px;
 $drop-shadow: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 $text-color: white;
 $text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -18,23 +18,23 @@ $mask-pattern-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/20
 }
 
 nav {
+
+  width: 98%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   padding: $nav-padding-default;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: 0.3s ease-out;
   color: $text-color;
   font-size: 16px;
   text-shadow: $text-shadow;
   @include nav-backdrop;
 
-  &.mask {
-    @include mask-image($mask-image);
-  }
+  // &.mask {
+  //   @include mask-image($mask-image);
+  // }
 
   &.mask-pattern {
     @include mask-image($mask-pattern-image);
@@ -48,7 +48,7 @@ nav {
   }
 
   @media (min-width: 640px) {
-    padding: $nav-padding-large;
+    // padding: $nav-padding-large;
   }
 
   a {
@@ -62,58 +62,13 @@ nav {
   }
 
   ul {
-    &.list {
+    &.menu-list {
       list-style-type: none;
-      display: none;
 
       @media (min-width: 640px) {
         display: flex;
       }
-
-      li {
-        margin-left: 20px;
-      }
     }
   }
 
-  button {
-    &.search,
-    &.menu {
-      display: inline-block;
-      padding: 0;
-      font-size: 0;
-      background: none;
-      border: none;
-      filter: $drop-shadow;
-
-      &::before {
-        content: '';
-        display: inline-block;
-      }
-
-      &.search::before {
-        width: 2rem;
-        height: 2rem;
-        background: center/1.3rem 1.3rem no-repeat url("data:image/svg+xml, %3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 12.21 10.57%27%3E%3Cpath fill=%27%23ffffff%27 d=%27M6.1 0h6.11L9.16 5.29 6.1 10.57 3.05 5.29 0 0h6.1z%27/%3E%3C/svg%3E");
-      }
-
-      &.menu::before {
-        width: 2.5rem;
-        height: 2rem;
-        background: center/2rem 1.5rem no-repeat url("data:image/svg+xml, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2015.17%2014.81%27%20width=%2715.17%27%20height=%2714.81%27%3E%3Cpath%20d=%27M6,.67A5.34,5.34,0,1,1,.67,6,5.33,5.33,0,0,1,6,.67ZM9.86,9.58l4.85,4.75Z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%271.33%27%2F%3E%3C%2Fsvg%3E");
-      }
-    }
-
-    &.menu {
-      @media (min-width: 640px) {
-        display: none;
-      }
-    }
-  }
-}
-
-img {
-  width: 100%;
-  min-height: 200vh;
-  object-fit: cover;
 }
