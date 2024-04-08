@@ -18,6 +18,8 @@ export class FilmsService {
 
   filmsSig = signal<IFilms | any>({})
 
+  filmSig = signal<IFilm | any>({})
+
   film$ = new Subject<IFilm | any>();
 
   constructor(private http: HttpClient) { }

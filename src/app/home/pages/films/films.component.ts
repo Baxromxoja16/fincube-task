@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy, WritableSignal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MaterialModule } from '../../../shared/material.module';
+import { DetailService } from '../../../shared/services/detail.service';
 import { FilmsService, IFilms } from '../services/films.service';
 
 @Component({
@@ -19,13 +20,12 @@ export class FilmsComponent implements OnInit, OnDestroy {
 
   constructor(
     private filmsService: FilmsService,
+    private detailService: DetailService,
     private router: Router
     ) {}
 
   ngOnInit(): void {
     const getFilms = this.filmsService.getFilms().subscribe();
-
-    console.log(this.filmsService.filmsSig());
 
     this.subscription.add(getFilms);
   }
@@ -36,8 +36,8 @@ export class FilmsComponent implements OnInit, OnDestroy {
     this.subscription.add(getFilm);
 
     this.filmsService.film$.subscribe((res) => {
-      console.log(res);
       if(res.url) {
+        this.detailService.detailSig.set(res);
         this.router.navigate(['/home/detail']);
       }
     })
