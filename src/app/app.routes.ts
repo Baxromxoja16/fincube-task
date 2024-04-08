@@ -1,7 +1,12 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './auth/login.component';
+import { FilmsComponent } from './films/films.component';
 import { HomeComponent } from './home/home.component';
+import { PeopleComponent } from './people/people.component';
+import { PlanetsComponent } from './planets/planets.component';
 import { PagenotfoundComponent } from './shared/components/pagenotfound/pagenotfound.component';
+import { ShipsComponent } from './ships/ships.component';
+import { TansportComponent } from './tansport/tansport.component';
 
 export const routes: Routes = [
   {
@@ -11,6 +16,11 @@ export const routes: Routes = [
   },
   { path: 'auth', component: LoginComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'people', component: PeopleComponent },
+  { path: 'films', component: FilmsComponent },
+  { path: 'planets', component: PlanetsComponent },
+  { path: 'ships', component: ShipsComponent },
+  { path: 'transport', component: TansportComponent },
   { path: '**', pathMatch: 'full',
   component: PagenotfoundComponent },
 ];
