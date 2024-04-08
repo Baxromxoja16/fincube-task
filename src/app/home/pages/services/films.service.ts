@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
-import { tap } from 'rxjs';
+import { tap, Subject } from 'rxjs';
 import { environment } from '../../../../environments/environment.development';
 
 export interface IFilms {
@@ -18,7 +18,7 @@ export class FilmsService {
 
   filmsSig = signal<IFilms | any>({})
 
-  filmSig = signal<IFilm | any>({});
+  film$ = new Subject<IFilm | any>();
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +33,7 @@ export class FilmsService {
   getFilm(url: string) {
     return this.http.get(url).pipe(
       tap((res) => {
-        this.filmSig.set(res);
+        this.film$.next(res);
       })
     );
   }

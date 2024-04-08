@@ -35,9 +35,12 @@ export class FilmsComponent implements OnInit, OnDestroy {
 
     this.subscription.add(getFilm);
 
-    if(this.filmsService.filmSig().name) {
-      this.router.navigate(['/home/films/detail']);
-    }
+    this.filmsService.film$.subscribe((res) => {
+      console.log(res);
+      if(res.url) {
+        this.router.navigate(['/home/detail']);
+      }
+    })
   }
 
   ngOnDestroy(): void {

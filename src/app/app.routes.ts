@@ -7,6 +7,7 @@ import { PlanetsComponent } from './home/pages/planets/planets.component';
 import { PagenotfoundComponent } from './shared/components/pagenotfound/pagenotfound.component';
 import { ShipsComponent } from './home/pages/ships/ships.component';
 import { TansportComponent } from './home/pages/tansport/tansport.component';
+import { DetailsComponent } from './shared/components/details/details.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,7 @@ export const routes: Routes = [
       { path: 'planets', component: PlanetsComponent, data: { animation: 'planetsPage' } },
       { path: 'ships', component: ShipsComponent, data: { animation: 'shipsPage' } },
       { path: 'transport', component: TansportComponent, data: { animation: 'transportPage' } },
+      { path: 'detail', component: DetailsComponent, data: { animation: 'detailPage' } },
     ]
   },
   {
