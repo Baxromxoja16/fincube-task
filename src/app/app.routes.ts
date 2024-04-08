@@ -17,11 +17,11 @@ export const routes: Routes = [
   { path: 'auth', component: LoginComponent },
   {
     path: 'home', component: HomeComponent, children: [
-      { path: 'people', component: PeopleComponent },
-      { path: 'films', component: FilmsComponent },
-      { path: 'planets', component: PlanetsComponent },
-      { path: 'ships', component: ShipsComponent },
-      { path: 'transport', component: TansportComponent },
+      { path: 'people', component: PeopleComponent, data: { animation: 'peoplePage' } },
+      { path: 'films', component: FilmsComponent, data: { animation: 'filmsPage' } },
+      { path: 'planets', component: PlanetsComponent, data: { animation: 'planetsPage' } },
+      { path: 'ships', component: ShipsComponent, data: { animation: 'shipsPage' } },
+      { path: 'transport', component: TansportComponent, data: { animation: 'transportPage' } },
     ]
   },
   {

@@ -4,14 +4,17 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MaterialModule } from '../shared/material.module';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { slideInAnimation } from './pages/animation';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [NavbarComponent, MaterialModule, CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  animations: [slideInAnimation]
+
 })
 export class HomeComponent {
   title="home"
@@ -21,7 +24,10 @@ export class HomeComponent {
   isMobile= true;
   isCollapsed = true;
 
-  constructor(private observer: BreakpointObserver) {}
+  constructor(
+    private observer: BreakpointObserver,
+    private contexts: ChildrenOutletContexts
+  ) {}
 
   ngOnInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
@@ -31,6 +37,10 @@ export class HomeComponent {
         this.isMobile = false;
       }
     });
+  }
+
+  getRouteAnimationData() {
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 
   toggleMenu() {
