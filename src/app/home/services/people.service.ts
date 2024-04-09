@@ -20,8 +20,8 @@ export class PeopleService {
 
   constructor(private http: HttpClient) { }
 
-  getPeoples() {
-    return this.http.get(this.baseUrl).pipe(
+  getPeoples(page = '') {
+    return this.http.get(this.baseUrl + page).pipe(
       tap((res) => {
         this.peoplesSig.set(res);
       })

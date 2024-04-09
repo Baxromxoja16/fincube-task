@@ -18,3 +18,9 @@
   </mat-card>
   }
 </div>
+
+<mat-paginator
+  [length]="peopleSig().count"
+  [pageSize]="pageSize"
+  (page)="handlePageEvent($event)"
+></mat-paginator>

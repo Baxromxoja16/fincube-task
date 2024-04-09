@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
+// html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 mat-icon{
@@ -7,10 +7,11 @@ mat-icon{
 }
 
 $purple: #673ab7;
+$whiteColor: white;
 
 mat-card {
   width: 18%;
-  color: white;
+  color: $whiteColor;
   background: rgba($color: $purple, $alpha: .7) !important;
 
   &-title,
@@ -21,7 +22,7 @@ mat-card {
 
 .mat-mdc-button,
 .mat-mdc-card-subtitle {
-  color: white !important;
+  color: $whiteColor !important;
 }
 
 @media (max-width: 1000px) {
@@ -39,4 +40,20 @@ mat-card {
   mat-card {
     width: 100%;
   }
+}
+
+mat-paginator {
+  background: rgba($color: $purple, $alpha: .7) !important;
+  color: $whiteColor !important;
+  width: 50%;
+  margin: 1rem auto;
+}
+.mat-mdc-paginator-page-size {
+  display: none !important;
+}
+html {
+  --mat-paginator-enabled-icon-color: rgba($color:  $whiteColor, $alpha: 1);
+}
+.mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
+  fill: rgba($color:  $whiteColor, $alpha: .3) !important;
 }

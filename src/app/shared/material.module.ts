@@ -12,6 +12,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatPaginator } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [],
@@ -28,7 +29,8 @@ import { MatListModule } from '@angular/material/list';
     MatNativeDateModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatPaginator
   ],
   exports: [
     MatCardModule,
@@ -42,7 +44,8 @@ import { MatListModule } from '@angular/material/list';
     MatNativeDateModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatPaginator
   ],
   providers: [
     MatDatepickerModule
