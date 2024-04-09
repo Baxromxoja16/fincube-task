@@ -41,7 +41,6 @@ mat-sidenav {
 }
 // Move the content down so that it won't be hidden by the toolbar
 mat-sidenav-content {
-  padding-top: 5rem;
-  padding-left: 2.5rem;
+  padding: 5rem 2.5rem;
   background: url("../../assets/images/bg.jpg") no-repeat;
 }
