@@ -1,19 +1,14 @@
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, GuardResult, MaybeAsync, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, CanActivateChild, GuardResult, MaybeAsync, RouterStateSnapshot, CanActivateChildFn } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { inject } from '@angular/core';
 
-export class AuthGuard implements CanActivateChild, CanActivate{
-
-  constructor(
-    private authService: AuthService,
-  ) {}
-
-  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if(this.authService.isLoggedIn()) return true;
-    return false;
-  }
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if(this.authService.isLoggedIn()) return true;
-    return false;
-  }
-}
+export const authGuard: CanActivateFn = (route, state) => {
+  const authService =  inject(AuthService)
+  if(authService.isLoggedIn()) return true;
+  return false;
+};
+export const authGuardChild: CanActivateChildFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  const authService =  inject(AuthService)
+  if(authService.isLoggedIn()) return true;
+  return false;
+};

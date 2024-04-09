@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { PagenotfoundComponent } from './shared/components/pagenotfound/pagenotfound.component';
-import { AuthGuard } from './auth/guards/auth.guard';
+import { authGuard, authGuardChild } from './auth/guards/auth.guard';
 
 
 export const routes: Routes = [
@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   { path: 'auth', loadComponent: () => import('./auth/login.component').then(mod => mod.LoginComponent) },
   {
-    path: 'home',canActivateChild: [AuthGuard], canActivate:[AuthGuard], loadComponent: () => import('./home/home.component').then(mod => mod.HomeComponent), children: [
+    path: 'home',canActivateChild: [authGuardChild], canActivate:[authGuard], loadComponent: () => import('./home/home.component').then(mod => mod.HomeComponent), children: [
       { path: 'people',  loadComponent: () => import('./home/pages/people/people.component').then(mod => mod.PeopleComponent), data: { animation: 'peoplePage' } },
       { path: 'films',  loadComponent: () => import('./home/pages/films/films.component').then(mod => mod.FilmsComponent), data: { animation: 'filmsPage' } },
       { path: 'planets', loadComponent: () => import('./home/pages/planets/planets.component').then(mod => mod.PlanetsComponent), data: { animation: 'planetsPage' } },
