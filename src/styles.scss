@@ -51,6 +51,9 @@ mat-paginator {
 .mat-mdc-paginator-page-size {
   display: none !important;
 }
+.mat-mdc-paginator-container {
+  justify-content: center !important;
+}
 html {
   --mat-paginator-enabled-icon-color: rgba($color:  $whiteColor, $alpha: 1);
 }
