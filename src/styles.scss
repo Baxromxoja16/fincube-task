@@ -6,4 +6,37 @@ mat-icon{
   font-family: 'Material Icons' !important;
 }
 
-$purple: #673ab7
+$purple: #673ab7;
+
+mat-card {
+  width: 18%;
+  color: white;
+  background: rgba($color: $purple, $alpha: .7) !important;
+
+  &-title,
+  &-subtitle {
+    color: #fee503;
+  }
+}
+
+.mat-mdc-button,
+.mat-mdc-card-subtitle {
+  color: white !important;
+}
+
+@media (max-width: 1000px) {
+  mat-card {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  mat-card {
+    width: 45%;
+  }
+}
+@media (max-width: 576px) {
+  mat-card {
+    width: 100%;
+  }
+}

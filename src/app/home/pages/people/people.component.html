@@ -1,1 +1,20 @@
-<p>people works!</p>
+<div class="people">
+  @for (people of peopleSig().results; track $index) {
+  <mat-card>
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="character-image"></div> -->
+      <mat-card-title>{{ people.name }}</mat-card-title>
+      <mat-card-subtitle>{{ people.gender }}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="path/to/peopleSig()/image.jpg" alt="peopleSig() image"> -->
+    <mat-card-content>
+      <p>Height: {{ people.height }} cm</p>
+      <p>Mass: {{ people.mass }} kg</p>
+      <p>Hair Color: {{ people.hair_color }}</p>
+      <p>Skin Color: {{ people.skin_color }}</p>
+      <p>Eye Color: {{ people.eye_color }}</p>
+      <p>Birth Year: {{ people.birth_year }}</p>
+    </mat-card-content>
+  </mat-card>
+  }
+</div>

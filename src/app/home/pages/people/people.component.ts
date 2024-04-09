@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MaterialModule } from '../../../shared/material.module';
 import { PeopleService } from '../../services/people.service';
 
 @Component({
   selector: 'app-people',
   standalone: true,
-  imports: [],
+  imports: [MaterialModule],
   templateUrl: './people.component.html',
   styleUrl: './people.component.scss'
 })
