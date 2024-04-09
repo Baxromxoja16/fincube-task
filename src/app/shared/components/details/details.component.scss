@@ -1,0 +1,31 @@
+@import url('../../../../styles.scss');
+
+.card {
+  background: rgba($color: #673ab7, $alpha: .4);
+  color: #fff;
+  font-size: 18px;
+}
+mat-card-content {
+  display: flex;
+  gap: 20px;
+}
+mat-card-subtitle,
+mat-card-content .producer {
+  font-size: 1rem;
+}
+mat-card-subtitle,
+mat-card-actions button {
+  color: #fff;
+  margin: 10px 0;
+}
+mat-card-title {
+  font-size: 2rem;
+}
+mat-card-content p {
+  font-size: 1.2rem;
+}
+mat-card-content .comment {
+  width: 80%;
+
+}
+

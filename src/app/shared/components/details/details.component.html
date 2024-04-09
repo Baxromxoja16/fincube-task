@@ -1,1 +1,21 @@
-<p>details works!</p>
+@if (detail().url) {
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{detail().title}}</mat-card-title>
+      <mat-card-subtitle>{{detail().created | date}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="comment">
+        {{detail().opening_crawl}}
+      </p>
+    <div class="people">
+      <p class="producer">
+        <strong>Producer:</strong> {{detail().producer}}
+      </p>
+      <p class="director">
+        <strong>Director:</strong> {{detail().director}}
+      </p>
+    </div>
+    </mat-card-content>
+  </mat-card>
+}
