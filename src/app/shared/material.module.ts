@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialogActions, MatDialogContent, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -30,7 +31,10 @@ import { MatPaginator } from '@angular/material/paginator';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatPaginator
+    MatPaginator,
+    MatDialogActions,
+    MatDialogContent,
+    MatDialogModule
   ],
   exports: [
     MatCardModule,
@@ -45,7 +49,10 @@ import { MatPaginator } from '@angular/material/paginator';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatPaginator
+    MatPaginator,
+    MatDialogActions,
+    MatDialogContent,
+    MatDialogModule
   ],
   providers: [
     MatDatepickerModule

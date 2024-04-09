@@ -6,11 +6,14 @@ import { MaterialModule } from '../shared/material.module';
 import { CommonModule } from '@angular/common';
 import { ChildrenOutletContexts, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './pages/animation';
+import { AuthService } from '../auth/services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, MaterialModule, CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [NavbarComponent, MaterialModule, CommonModule, RouterLink, RouterLinkActive, RouterOutlet, DialogComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   animations: [slideInAnimation]
@@ -26,7 +29,9 @@ export class HomeComponent {
 
   constructor(
     private observer: BreakpointObserver,
-    private contexts: ChildrenOutletContexts
+    private contexts: ChildrenOutletContexts,
+    private authService: AuthService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -51,5 +56,11 @@ export class HomeComponent {
       this.sidenav.open(); // On desktop/tablet, the menu can never be fully closed
       this.isCollapsed = !this.isCollapsed;
     }
+  }
+
+  logout() {
+    this.dialog.open(DialogComponent, {
+      width: '250px'
+    });
   }
 }
