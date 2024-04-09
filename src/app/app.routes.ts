@@ -15,15 +15,15 @@ export const routes: Routes = [
     redirectTo: '/auth',
     pathMatch: 'full',
   },
-  { path: 'auth', component: LoginComponent },
+  { path: 'auth', loadComponent: () => import('./auth/login.component').then(mod => mod.LoginComponent) },
   {
-    path: 'home', component: HomeComponent, children: [
-      { path: 'people', component: PeopleComponent, data: { animation: 'peoplePage' } },
-      { path: 'films', component: FilmsComponent, data: { animation: 'filmsPage' } },
-      { path: 'planets', component: PlanetsComponent, data: { animation: 'planetsPage' } },
-      { path: 'ships', component: ShipsComponent, data: { animation: 'shipsPage' } },
-      { path: 'transport', component: TansportComponent, data: { animation: 'transportPage' } },
-      { path: 'detail', component: DetailsComponent, data: { animation: 'detailPage' } },
+    path: 'home', loadComponent: () => import('./home/home.component').then(mod => mod.HomeComponent), children: [
+      { path: 'people',  loadComponent: () => import('./home/pages/people/people.component').then(mod => mod.PeopleComponent), data: { animation: 'peoplePage' } },
+      { path: 'films',  loadComponent: () => import('./home/pages/films/films.component').then(mod => mod.FilmsComponent), data: { animation: 'filmsPage' } },
+      { path: 'planets', loadComponent: () => import('./home/pages/planets/planets.component').then(mod => mod.PlanetsComponent), data: { animation: 'planetsPage' } },
+      { path: 'ships', loadComponent: () => import('./home/pages/ships/ships.component').then(mod => mod.ShipsComponent), data: { animation: 'shipsPage' } },
+      { path: 'transport', loadComponent: () => import('./home/pages/tansport/tansport.component').then(mod => mod.TansportComponent), data: { animation: 'transportPage' } },
+      { path: 'detail', loadComponent: () => import('./shared/components/details/details.component').then(mod => mod.DetailsComponent), data: { animation: 'detailPage' } },
     ]
   },
   {
