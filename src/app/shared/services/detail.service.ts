@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { IFilm } from '../../home/pages/services/films.service';
+import { IFilm } from '../../home/services/films.service';
 
 @Injectable({
   providedIn: 'root'

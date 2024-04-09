@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MaterialModule } from '../../../shared/material.module';
 import { DetailService } from '../../../shared/services/detail.service';
-import { FilmsService, IFilms } from '../services/films.service';
+import { FilmsService, IFilms } from '../../services/films.service';
 
 @Component({
   selector: 'app-films',

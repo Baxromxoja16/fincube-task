@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { tap, Subject } from 'rxjs';
-import { environment } from '../../../../environments/environment.development';
+import { environment } from '../../../environments/environment.development';
 
 export interface IFilms {
 
