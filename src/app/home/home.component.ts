@@ -4,7 +4,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MaterialModule } from '../shared/material.module';
 import { CommonModule } from '@angular/common';
-import { ChildrenOutletContexts, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ChildrenOutletContexts, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { slideInAnimation } from './pages/animation';
 import { AuthService } from '../auth/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -31,7 +31,8 @@ export class HomeComponent {
     private observer: BreakpointObserver,
     private contexts: ChildrenOutletContexts,
     private authService: AuthService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -59,8 +60,10 @@ export class HomeComponent {
   }
 
   logout() {
-    this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px'
     });
+
+    dialogRef.afterClosed().subscribe();
   }
 }
