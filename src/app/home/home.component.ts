@@ -64,6 +64,11 @@ export class HomeComponent {
       width: '250px'
     });
 
-    dialogRef.afterClosed().subscribe();
+    dialogRef.afterClosed().subscribe(({result}) => {
+      if(result) {
+        this.authService.logout();
+        this.router.navigate(['/auth']);
+      }
+    });
   }
 }
