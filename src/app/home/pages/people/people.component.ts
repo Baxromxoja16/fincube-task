@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PeopleService } from '../../services/people.service';
 
 @Component({
   selector: 'app-people',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './people.component.html',
   styleUrl: './people.component.scss'
 })
-export class PeopleComponent {
+export class PeopleComponent implements OnInit {
+  peopleSig = this.peopleService.peoplesSig
 
+  constructor(private peopleService: PeopleService) {}
+
+  ngOnInit(): void {
+    this.peopleService.getPeoples().subscribe();
+  }
 }
