@@ -71,4 +71,10 @@ export class HomeComponent {
       }
     });
   }
+
+  get username() {
+    const user = JSON.parse(localStorage.getItem('user')!)
+    return user.firstname
+  }
+
 }

@@ -1,9 +1,15 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <h1>Star Wars</h1>
-  <button mat-button (click)="logout()">Log out</button>
+<mat-toolbar color="primary" style="display: flex; justify-content: space-between;">
+  <div class="settings-info">
+    <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Star Wars</h1>
+
+  </div>
+
+  <div class="user-info">
+    <span>{{username}}</span>
+  </div>
 </mat-toolbar>
 
 <mat-sidenav-container autosize>
@@ -58,6 +64,14 @@
           <mat-icon>directions_boat</mat-icon>
           @if (!isCollapsed) {
           <span>Ships</span>
+          }
+        </span></a
+      >
+      <a mat-list-item (click)="logout()">
+        <span class="entry">
+          <mat-icon>logout</mat-icon>
+          @if (!isCollapsed) {
+          <span>Logout</span>
           }
         </span></a
       >
