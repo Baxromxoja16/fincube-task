@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MaterialModule } from '../shared/material.module';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -22,9 +23,11 @@ export class LoginComponent {
 
   registerForm!:FormGroup;
 
+  isLogin: {result: string} = { result: '' };
+
   constructor(private authService: AuthService, private router: Router) {
     this.logInForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+      firstname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       password: new FormControl(null, [Validators.required, Validators.minLength(3)])
     })
   }
@@ -45,8 +48,9 @@ export class LoginComponent {
 
   login() {
     if(this.logInForm.valid) {
-      this.authService.login(this.logInForm.value);
-      localStorage.getItem('authToken') ? this.router.navigate(['/home']) : ''
+      const isLogin = this.authService.login(this.logInForm.value);
+      this.isLogin.result = isLogin;
+      if(isLogin !== 'incorrect') this.router.navigate(['/home']);
     }
   }
 

@@ -4,18 +4,18 @@
       <div class="log-in-block">
         <div class="body-split-line">
           <span class="line"></span>
-          <span class="text">or log in with your email</span>
+          <span class="text">Log in</span>
           <span class="line"></span>
         </div>
+        @if(isLogin.result === 'incorrect') {
+          <span class="wrong-message">Password or Firstname is wrong!</span>
+        }
         <form class="form-block" [formGroup]="logInForm">
           <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" formControlName="email" />
-            @if (logInForm.get('email')?.errors?.["required"] && logInForm.get('email')?.touched) {
-              <mat-error>Enter your email please</mat-error>
-            }
-            @else if (logInForm.get('email')?.errors?.["pattern"] && logInForm.get('email')?.touched) {
-              <mat-error>Wrong email</mat-error>
+            <mat-label>Firstname</mat-label>
+            <input matInput type="firstname" formControlName="firstname" />
+            @if (logInForm.get('firstname')?.errors?.["required"] && logInForm.get('firstname')?.touched) {
+              <mat-error>Enter your firstname please</mat-error>
             }
           </mat-form-field>
 
@@ -52,7 +52,7 @@
       <div class="register-block">
         <div class="body-split-line">
           <span class="line"></span>
-          <span class="text">or sign up with your email</span>
+          <span class="text">Sign up</span>
           <span class="line"></span>
         </div>
         <form [formGroup]="registerForm">

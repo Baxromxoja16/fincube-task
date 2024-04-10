@@ -97,6 +97,7 @@ form {
     letter-spacing: 0.1px;
     color: #ffffff;
   }
+  text-align: center;
 }
 .agree {
   margin-bottom: 24px;
@@ -124,5 +125,30 @@ form {
   mat-form-field{
     width: 100%;
     margin-bottom: -1.25rem;
+  }
+}
+
+.wrong-message {
+  display: inline-block;
+  color: red;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+  .modal {
+    width: 60%;
+  }
+  .wrong-message {
+    font-size: 16px;
+  }
+}
+@media (max-width: 576px) {
+  .wrong-message {
+    font-size: 14px;
+  }
+  .modal {
+    width: 90%;
   }
 }

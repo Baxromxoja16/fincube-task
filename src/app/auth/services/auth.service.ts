@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface UserLogin {
-  email: string
+  firstname: string
   password: string
 }
 
@@ -10,19 +10,19 @@ export interface UserLogin {
 })
 export class AuthService {
   private users = [
-    { email: 'test@gmail.com', password: 'test@gmail.com', firstname: 'Luke', lastname: 'Skywalker', birthday: ''  },
-    { email: 'test2@gmail.com', password: 'test2@gmail.com', firstname: 'Leia', lastname: 'Organa', birthday: ''  }
+    { email: 'test@gmail.com', password: 'John', firstname: 'John', lastname: 'Skywalker', birthday: ''  },
+    { email: 'test2@gmail.com', password: 'Michael', firstname: 'Michael', lastname: 'Organa', birthday: ''  }
   ];
   constructor() { }
 
-  login(data: UserLogin): boolean {
-    const user = this.users.find(u => u.email === data.email && u.password === data.password);
+  login(data: UserLogin): string {
+    const user = this.users.find(u => u.firstname === data.firstname && u.password === data.password);
     if (user) {
       localStorage.setItem('authToken', this.generateToken());
       localStorage.setItem('user', JSON.stringify(user));
-      return true;
+      return 'done';
     }
-    return false;
+    return 'incorrect';
   }
 
   private generateToken(): string {
