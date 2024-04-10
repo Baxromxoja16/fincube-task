@@ -18,14 +18,14 @@ export class ShipsComponent {
   constructor(private shipsService: ShipsService) {}
 
   ngOnInit(): void {
-    const getPlanets = this.shipsService.getShips().subscribe();
+    const getPlanets = this.shipsService.getAll().subscribe();
 
     this.subscription.add(getPlanets)
   }
 
   handlePageEvent(e: PageEvent) {
     const page = '?page=' + (e.pageIndex + 1);
-    const getPlanets = this.shipsService.getShips(page).subscribe();
+    const getPlanets = this.shipsService.getAll(page).subscribe();
     this.subscription.add(getPlanets)
   }
 
