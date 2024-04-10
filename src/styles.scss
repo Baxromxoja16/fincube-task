@@ -71,3 +71,18 @@ html {
 .mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
   fill: rgba($color:  $whiteColor, $alpha: .3) !important;
 }
+
+app-card {
+  width: 30%;
+}
+@media (max-width: 1000px) {
+  app-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 576px) {
+  app-card {
+    width: 100%;
+  }
+}
