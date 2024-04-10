@@ -1,12 +1,15 @@
 <div class="transport">
   <div class="transport_box">
     @for (vehicle of transportSig().results; track $index) {
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>{{ vehicle.name }}</mat-card-title>
-          <mat-card-subtitle>{{ vehicle.model }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
+      <app-card>
+        <ng-template #headerTemplate>
+          <mat-card-header>
+            <mat-card-title>{{ vehicle.name }}</mat-card-title>
+            <mat-card-subtitle>{{ vehicle.model }}</mat-card-subtitle>
+          </mat-card-header>
+        </ng-template>
+
+        <ng-template #contentTemplate>
           <p>Manufacturer: {{ vehicle.manufacturer }}</p>
           <p>Cost in Credits: {{ vehicle.cost_in_credits }}</p>
           <p>Length: {{ vehicle.length }}m</p>
@@ -16,8 +19,8 @@
           <p>Cargo Capacity: {{ vehicle.cargo_capacity }}</p>
           <p>Consumables: {{ vehicle.consumables }}</p>
           <p>Vehicle Class: {{ vehicle.vehicle_class }}</p>
-        </mat-card-content>
-      </mat-card>
+        </ng-template>
+      </app-card>
     }
   </div>
 

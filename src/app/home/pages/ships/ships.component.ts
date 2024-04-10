@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { MaterialModule } from '../../../shared/material.module';
+import { CardComponent } from '../../components/card/card.component';
 import { ShipsService } from '../../services/ships.service';
 @Component({
   selector: 'app-ships',
   standalone: true,
-  imports: [MaterialModule],
+  imports: [MaterialModule, CardComponent],
   templateUrl: './ships.component.html',
   styleUrl: './ships.component.scss'
 })

@@ -1,12 +1,15 @@
 <div class="ships">
   <div class="ships_box">
     @for (starship of shipsSig().results; track $index) {
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>{{ starship.name }}</mat-card-title>
-          <mat-card-subtitle>{{ starship.model }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
+      <app-card>
+        <ng-template #headerTemplate>
+          <mat-card-header>
+            <mat-card-title>{{ starship.name }}</mat-card-title>
+            <mat-card-subtitle>{{ starship.model }}</mat-card-subtitle>
+          </mat-card-header>
+        </ng-template>
+
+        <ng-template #contentTemplate>
           <p>Manufacturer: {{ starship.manufacturer }}</p>
           <p>Cost in Credits: {{ starship.cost_in_credits }}</p>
           <p>Length: {{ starship.length }} meters</p>
@@ -18,9 +21,8 @@
           <p>Hyperdrive Rating: {{ starship.hyperdrive_rating }}</p>
           <p>MGLT: {{ starship.MGLT }}</p>
           <p>Starship Class: {{ starship.starship_class }}</p>
-        </mat-card-content>
-      </mat-card>
-
+        </ng-template>
+      </app-card>
     }
   </div>
 

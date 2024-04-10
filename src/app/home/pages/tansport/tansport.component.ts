@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { MaterialModule } from '../../../shared/material.module';
+import { CardComponent } from '../../components/card/card.component';
 import { TransportService } from '../../services/transport.service';
 
 @Component({
   selector: 'app-tansport',
   standalone: true,
-  imports: [MaterialModule],
+  imports: [MaterialModule, CardComponent],
   templateUrl: './tansport.component.html',
   styleUrl: './tansport.component.scss'
 })

@@ -2,12 +2,13 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { MaterialModule } from '../../../shared/material.module';
+import { CardComponent } from '../../components/card/card.component';
 import { PlanetService } from '../../services/planets.service';
 
 @Component({
   selector: 'app-planets',
   standalone: true,
-  imports: [MaterialModule],
+  imports: [MaterialModule, CardComponent],
   templateUrl: './planets.component.html',
   styleUrl: './planets.component.scss'
 })
