@@ -1,14 +1,14 @@
-mat-card {
+app-card {
   width: 30%;
 }
 @media (max-width: 1000px) {
-  mat-card {
+  app-card {
     width: 45%;
   }
 }
 
 @media (max-width: 576px) {
-  mat-card {
+  app-card {
     width: 100%;
   }
 }

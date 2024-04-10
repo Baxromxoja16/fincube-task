@@ -1,6 +1,22 @@
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
   @for (film of films().results; track $index) {
-    <mat-card class="card">
+    <app-card>
+      <ng-template #headerTemplate>
+        <mat-card-header>
+          <mat-card-title>{{film.title}}</mat-card-title>
+          <mat-card-subtitle>{{film.created | date: 'mediumDate'}}</mat-card-subtitle>
+        </mat-card-header>
+      </ng-template>
+
+      <ng-template #contentTemplate>
+        <p>{{film.opening_crawl}}</p>
+      </ng-template>
+
+      <ng-template #actionsTemplate>
+        <button mat-button (click)="detailCard(film.url)">MORE</button>
+      </ng-template>
+    </app-card>
+    <!-- <mat-card class="card">
       <mat-card-header>
         <mat-card-title>{{film.title}}</mat-card-title>
         <mat-card-subtitle>{{film.created | date: 'mediumDate'}}</mat-card-subtitle>
@@ -13,7 +29,7 @@
       <mat-card-actions>
         <button mat-button (click)="detailCard(film.url)">MORE</button>
       </mat-card-actions>
-    </mat-card>
+    </mat-card> -->
   }
 </div>
 
