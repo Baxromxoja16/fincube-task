@@ -5,13 +5,13 @@ import { Observable, Subject, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BaseService<T> {
+export class BaseService<T, B = void> {
 
-  datasSig = signal<T | any>({})
+  datasSig = signal<T>({} as T);
 
-  dataSig = signal<T | any>({})
+  dataSig = signal<T>({} as T);
 
-  data$ = new Subject<T | any>();
+  data$ = new Subject<B>();
 
   protected constructor(private http: HttpClient, @Inject(String) private endpointUrl: string) { }
 
@@ -23,8 +23,8 @@ export class BaseService<T> {
     );;
   }
 
-  getById(url: string): Observable<T> {
-    return this.http.get<T>(url).pipe(
+  getById(url: string): Observable<B> {
+    return this.http.get<B>(url).pipe(
       tap((res) => {
         this.data$.next(res);
       })

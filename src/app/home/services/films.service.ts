@@ -1,21 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, signal } from '@angular/core';
-import { tap, Subject } from 'rxjs';
+import { Injectable, WritableSignal } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { BaseService } from '../../shared/services/base.service';
-
-export interface IFilms {
-
-}
-export interface IFilm {
-
-}
+import { IFilmListResponse, IFilms } from '../pages/films/films.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FilmsService extends BaseService<IFilms>{
-  filmsSig = this.datasSig;
+export class FilmsService extends BaseService<IFilmListResponse, IFilms>{
+  filmsSig: WritableSignal<IFilmListResponse> = this.datasSig;
 
   filmSig = this.dataSig;
 

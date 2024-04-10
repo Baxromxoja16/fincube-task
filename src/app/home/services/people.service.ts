@@ -3,14 +3,12 @@ import { Injectable, signal } from '@angular/core';
 import { Subject, tap } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { BaseService } from '../../shared/services/base.service';
-
-export interface IPeoples {}
-export interface IPeople {}
+import { IPeopleListResponse } from '../pages/people/people.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PeopleService extends BaseService<IPeoples | any>{
+export class PeopleService extends BaseService<IPeopleListResponse>{
   baseUrl = environment.apiUrl + 'people';
 
   peoplesSig = this.datasSig

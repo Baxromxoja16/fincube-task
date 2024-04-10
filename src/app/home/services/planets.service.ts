@@ -3,14 +3,12 @@ import { Injectable, signal } from '@angular/core';
 import { Subject, tap } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { BaseService } from '../../shared/services/base.service';
-
-export interface IPlanets {}
-export interface IPlanet {}
+import { IPlanetListResponse } from '../pages/planets/planets.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PlanetService extends BaseService<IPlanets> {
+export class PlanetService extends BaseService<IPlanetListResponse> {
   planetsSig = this.datasSig;
 
   planetSig = this.dataSig;
