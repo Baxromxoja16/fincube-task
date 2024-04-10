@@ -4,11 +4,12 @@ import { PeopleService } from '../../services/people.service';
 import {PageEvent, MatPaginatorModule} from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { CardComponent } from '../../components/card/card.component';
 
 @Component({
   selector: 'app-people',
   standalone: true,
-  imports: [MaterialModule, CommonModule],
+  imports: [MaterialModule, CommonModule, CardComponent],
   templateUrl: './people.component.html',
   styleUrl: './people.component.scss'
 })
