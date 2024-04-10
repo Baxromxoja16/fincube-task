@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../../../shared/material.module';
 import { PeopleService } from '../../services/people.service';
 import {PageEvent, MatPaginatorModule} from '@angular/material/paginator';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-people',
   standalone: true,
-  imports: [MaterialModule],
+  imports: [MaterialModule, CommonModule],
   templateUrl: './people.component.html',
   styleUrl: './people.component.scss'
 })

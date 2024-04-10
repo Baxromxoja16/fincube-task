@@ -50,6 +50,15 @@ mat-paginator {
   width: 50%;
   margin: 1rem auto;
 }
+@media (max-width: 1000px) {
+  mat-paginator {
+    position: fixed;
+    bottom: 2rem;
+    right: 10%;
+    width: 30%;
+  }
+}
+
 .mat-mdc-paginator-page-size {
   display: none !important;
 }
