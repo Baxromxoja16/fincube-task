@@ -55,6 +55,8 @@ export class LoginComponent {
   }
 
   register(): void {
-    if(this.registerForm.valid) {}
+    if(this.registerForm.valid) {
+      alert("This function is not implemented yet")
+    }
   }
 }
