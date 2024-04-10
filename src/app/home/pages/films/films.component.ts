@@ -32,7 +32,7 @@ export class FilmsComponent implements OnInit, OnDestroy {
   }
 
   detailCard(url: string) {
-    const getFilm = this.filmsService.getAll(url).subscribe();
+    const getFilm = this.filmsService.getById(url).subscribe();
 
     this.subscription.add(getFilm);
 
