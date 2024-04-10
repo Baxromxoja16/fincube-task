@@ -19,14 +19,14 @@ export class PlanetsComponent implements OnInit, OnDestroy {
   constructor(private planetService: PlanetService) {}
 
   ngOnInit(): void {
-    const getPlanets = this.planetService.getPlanets().subscribe();
+    const getPlanets = this.planetService.getAll().subscribe();
 
     this.subscription.add(getPlanets)
   }
 
   handlePageEvent(e: PageEvent) {
     const page = '?page=' + (e.pageIndex + 1);
-    const getPlanets = this.planetService.getPlanets(page).subscribe();
+    const getPlanets = this.planetService.getAll(page).subscribe();
     this.subscription.add(getPlanets)
   }
 

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { Subject, tap } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
+import { BaseService } from '../../shared/services/base.service';
 
 export interface IPlanets {}
 export interface IPlanet {}
@@ -9,30 +10,14 @@ export interface IPlanet {}
 @Injectable({
   providedIn: 'root'
 })
-export class PlanetService {
-  baseUrl = environment.apiUrl + 'planets';
+export class PlanetService extends BaseService<IPlanets> {
+  planetsSig = this.datasSig;
 
-  planetsSig = signal<IPlanets | any>({})
+  planetSig = this.dataSig;
 
-  planetSig = signal<IPlanet | any>({})
+  planet$ = this.data$;
 
-  planet$ = new Subject<IPlanet | any>();
-
-  constructor(private http: HttpClient) { }
-
-  getPlanets(page = '') {
-    return this.http.get(this.baseUrl + page).pipe(
-      tap((res) => {
-        this.planetsSig.set(res);
-      })
-    );
-  }
-
-  getPlanet(url: string) {
-    return this.http.get(url).pipe(
-      tap((res) => {
-        this.planet$.next(res);
-      })
-    );
+  constructor(http: HttpClient) {
+    super(http, environment.apiUrl + 'planets')
   }
 }
