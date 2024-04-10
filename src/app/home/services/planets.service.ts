@@ -10,7 +10,7 @@ export interface IPlanet {}
   providedIn: 'root'
 })
 export class PlanetService {
-  baseUrl = environment.apiUrl + 'planet';
+  baseUrl = environment.apiUrl + 'planets';
 
   planetsSig = signal<IPlanets | any>({})
 

@@ -1,1 +1,30 @@
-<p>planets works!</p>
+<div class="planets">
+  <div class="planets_box">
+    @for (planet of planetsSig().results; track $index) {
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ planet.name }}</mat-card-title>
+          <mat-card-subtitle>Population: {{ planet.population }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Climate: {{ planet.climate }}</p>
+          <p>Terrain: {{ planet.terrain }}</p>
+          <p>Gravity: {{ planet.gravity }}</p>
+          <p>Surface Water: {{ planet.surface_water }}%</p>
+          <p>Rotation Period: {{ planet.rotation_period }} hours</p>
+          <p>Orbital Period: {{ planet.orbital_period }} days</p>
+          <p>Diameter: {{ planet.diameter }} km</p>
+        </mat-card-content>
+        <!-- <mat-card-actions>
+          <a href="{{ planet.url }}" target="_blank">Learn More</a>
+        </mat-card-actions> -->
+      </mat-card>
+    }
+  </div>
+
+  <mat-paginator
+  [length]="planetsSig().count"
+  [pageSize]="pageSize"
+  (page)="handlePageEvent($event)"
+></mat-paginator>
+</div>

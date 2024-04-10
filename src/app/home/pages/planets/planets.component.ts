@@ -1,12 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { Subscription } from 'rxjs';
+import { MaterialModule } from '../../../shared/material.module';
+import { PlanetService } from '../../services/planets.service';
 
 @Component({
   selector: 'app-planets',
   standalone: true,
-  imports: [],
+  imports: [MaterialModule],
   templateUrl: './planets.component.html',
   styleUrl: './planets.component.scss'
 })
-export class PlanetsComponent {
+export class PlanetsComponent implements OnInit, OnDestroy {
+  subscription = new Subscription()
+  planetsSig = this.planetService.planetsSig
+  pageSize = 10;
 
+  constructor(private planetService: PlanetService) {}
+
+  ngOnInit(): void {
+    const getPlanets = this.planetService.getPlanets().subscribe();
+
+    this.subscription.add(getPlanets)
+  }
+
+  handlePageEvent(e: PageEvent) {
+    const page = '?page=' + (e.pageIndex + 1);
+    const getPlanets = this.planetService.getPlanets(page).subscribe();
+    this.subscription.add(getPlanets)
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
 }
