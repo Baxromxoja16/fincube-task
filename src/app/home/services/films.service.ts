@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { tap, Subject } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
+import { BaseService } from '../../shared/services/base.service';
 
 export interface IFilms {
 
@@ -13,30 +14,14 @@ export interface IFilm {
 @Injectable({
   providedIn: 'root'
 })
-export class FilmsService {
-  baseUrl = environment.apiUrl + 'films';
+export class FilmsService extends BaseService<IFilms>{
+  filmsSig = this.datasSig;
 
-  filmsSig = signal<IFilms | any>({})
+  filmSig = this.dataSig;
 
-  filmSig = signal<IFilm | any>({})
+  film$ = this.data$;
 
-  film$ = new Subject<IFilm | any>();
-
-  constructor(private http: HttpClient) { }
-
-  getFilms() {
-    return this.http.get(this.baseUrl).pipe(
-      tap((res) => {
-        this.filmsSig.set(res);
-      })
-    );
-  }
-
-  getFilm(url: string) {
-    return this.http.get(url).pipe(
-      tap((res) => {
-        this.film$.next(res);
-      })
-    );
+  constructor(http: HttpClient) {
+    super(http, environment.apiUrl + 'films')
   }
 }

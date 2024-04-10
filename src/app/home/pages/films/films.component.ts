@@ -25,13 +25,13 @@ export class FilmsComponent implements OnInit, OnDestroy {
     ) {}
 
   ngOnInit(): void {
-    const getFilms = this.filmsService.getFilms().subscribe();
+    const getFilms = this.filmsService.getAll().subscribe();
 
     this.subscription.add(getFilms);
   }
 
   detailCard(url: string) {
-    const getFilm = this.filmsService.getFilm(url).subscribe();
+    const getFilm = this.filmsService.getAll(url).subscribe();
 
     this.subscription.add(getFilm);
 
