@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { Subject, tap } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
+import { BaseService } from '../../shared/services/base.service';
 
 export interface IPeoples {}
 export interface IPeople {}
@@ -9,30 +10,14 @@ export interface IPeople {}
 @Injectable({
   providedIn: 'root'
 })
-export class PeopleService {
+export class PeopleService extends BaseService<IPeoples | any>{
   baseUrl = environment.apiUrl + 'people';
 
-  peoplesSig = signal<IPeoples | any>({})
+  peoplesSig = this.datasSig
+  peopleSig = this.dataSig
+  people$ = this.data$
 
-  peopleSig = signal<IPeople | any>({})
-
-  people$ = new Subject<IPeople | any>();
-
-  constructor(private http: HttpClient) { }
-
-  getPeoples(page = '') {
-    return this.http.get(this.baseUrl + page).pipe(
-      tap((res) => {
-        this.peoplesSig.set(res);
-      })
-    );
-  }
-
-  getPeople(url: string) {
-    return this.http.get(url).pipe(
-      tap((res) => {
-        this.people$.next(res);
-      })
-    );
+  constructor(http: HttpClient) {
+    super(http, environment.apiUrl + 'people');
   }
 }

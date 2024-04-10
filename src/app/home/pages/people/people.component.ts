@@ -20,14 +20,14 @@ export class PeopleComponent implements OnInit, OnDestroy {
   constructor(private peopleService: PeopleService) {}
 
   ngOnInit(): void {
-    const getPeople = this.peopleService.getPeoples().subscribe();
+    const getPeople = this.peopleService.getAll().subscribe();
 
     this.subscription.add(getPeople);
   }
 
   handlePageEvent(e: PageEvent) {
     const page = '?page=' + (e.pageIndex + 1);
-    const getPeople = this.peopleService.getPeoples(page).subscribe();
+    const getPeople = this.peopleService.getAll(page).subscribe();
     this.subscription.add(getPeople);
   }
 
