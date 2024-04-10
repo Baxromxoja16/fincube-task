@@ -19,14 +19,6 @@
     [opened]="isMobile ? 'false' : 'true'"
   >
     <mat-nav-list>
-      <a mat-list-item routerLink="/home">
-        <span class="entry">
-          <mat-icon>house</mat-icon>
-          @if (!isCollapsed) {
-          <span>Home</span>
-          }
-        </span>
-      </a>
       <a mat-list-item routerLink="/home/people" routerLinkActive="active">
         <span class="entry">
           <mat-icon>people</mat-icon>

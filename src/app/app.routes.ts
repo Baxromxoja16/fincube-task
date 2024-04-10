@@ -9,6 +9,11 @@ export const routes: Routes = [
     redirectTo: '/auth',
     pathMatch: 'full',
   },
+  {
+    path: 'home',
+    redirectTo: 'home/people',
+    pathMatch: 'full',
+  },
   { path: 'auth', loadComponent: () => import('./auth/login.component').then(mod => mod.LoginComponent), title: "Auth" },
   {
     path: 'home',canActivateChild: [authGuardChild], canActivate:[authGuard], loadComponent: () => import('./home/home.component').then(mod => mod.HomeComponent), title: "Home", children: [
